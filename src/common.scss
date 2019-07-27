@@ -1,0 +1,74 @@
+$textcolor: #282828;
+$white:#fff;
+// blue
+// $background:#f0f5ff;
+// $c2:#d6e4ff;
+// $c3:#adc6ff;
+// $c4:#85a5ff;
+// $c5:#597ef7;
+// $primary:#2f54eb;
+// $c7:#1d39c4;
+// $c8:#10239e;
+// $c9:#061178;
+// $c10:#030852;
+$background:#e6f7ff;
+$c2:#bae7ff;
+$c3:#91d5ff;
+$c4:#69c0ff;
+$c5:#40a9ff;
+$primary:#1890ff;
+$c7:#096dd9;
+$c8:#0050b3;
+$c9:#003a8c;
+$c10:#002766;
+// gray
+$g1:#f8f9fa;
+$g2:#f1f3f5;
+$g3:#e9ecef;
+$g4:#dee2e6;
+$g5:#ced4da;
+$g6:#adb5bd;
+$g7:#868e96;
+$g8:#495057;
+$g9:#343a40;
+$g10:#212529;
+$font:'Noto Sans KR',
+sans-serif;
+
+$cardHeight: calc(50vh - 50px);
+
+.nav {
+    margin-bottom: 15px;
+}
+
+.cardWrapper {
+    width: 100%;
+    height: $cardHeight;
+    color: $textcolor;
+    padding: 5px 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.scroll::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $c3;
+}

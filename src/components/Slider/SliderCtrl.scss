@@ -1,0 +1,15 @@
+@import '../../common';
+
+.slider{
+    padding:0px 30px;
+    flex:1;
+    display:flex;
+    flex-direction: column;
+    .slidertitle{
+        font-size:12px;
+        font-weight: bold;
+    }
+    .ant-row{
+        flex:1 0;
+    }
+}

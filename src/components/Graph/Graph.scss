@@ -1,0 +1,19 @@
+@import '../../common';
+
+.graphbody{
+    overflow:hidden;
+    display: flex;
+    .linechart{
+        // background-color:$c2;
+        flex:20;
+    }
+    .charttxt{
+        overflow-Y:scroll;
+        flex:4;
+        margin-right:10px;
+        margin-bottom:20px;
+        padding:20px;
+        font-size:14px;
+        font-weight:normal;
+    }
+}
