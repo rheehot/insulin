@@ -40,7 +40,6 @@ class EachSlider extends Component {
             <Col span={18}>
             <Slider
                 marks={marks} 
-                defaultValue={marks.eachrcmd}
                 min={0}
                 max={20}
                 onChange={this.onChange}
@@ -51,7 +50,6 @@ class EachSlider extends Component {
             <InputNumber
                 min={0}
                 max={20}
-                defaultValue={marks.eachrcmd}
                 formatter={value => `${value}mg`}
                 style={{ width: '100%' }}
                 value={inputValue}

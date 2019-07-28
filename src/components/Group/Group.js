@@ -1,21 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Select } from 'antd';
 import Scatter from './Scatter'
 import CardHead from '../CardHead'
 import "./Group.scss";
 
 const { Option } = Select;
-function handleChange(value) {
-    console.log(`selected ${value}`);
-}
-const Group = ({cardtitle, rcmd }) => {
-    return (
+class Group extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            group:0,
+            dimensions: null,
+        };
+    }
+
+    componentDidMount() {
+        this.setState({
+            dimensions: {
+                width: this.container.offsetWidth,
+                height: this.container.offsetHeight,
+            },
+        });
+    }
+    selectGroup = (value) => {
+        this.setState({
+            group: value,
+            // filteredData: data.filter(v => v.group === value)
+        })
+    }
+    render() {
+        const {cardtitle, rcmd, selectPerson } = this.props;
+        const { dimensions, group,filteredData }=this.state;
+        return (
         <div className={'cardWrapper'}>
             <div className={'card'}>
                 <CardHead
                 cardtitle={cardtitle}
                 />
-                <Select defaultValue="ALL" style={{ width: 120, position:"absolute", top:'15px', right:'20px' }} onChange={handleChange}>
+                <Select defaultValue="0" style={{ width: 120, position:"absolute", top:'15px', right:'20px' }} onChange={this.selectGroup}>
                     <Option value="0">그룹A</Option>
                     <Option value="1">그룹B</Option>
                     <Option value="2">그룹C</Option>
@@ -24,10 +46,15 @@ const Group = ({cardtitle, rcmd }) => {
                     <Option value="5">그룹F</Option>
                     <Option value="6">그룹G</Option>
                 </Select>
-                <div className="plot">
+                <div className="plot" ref={el => (this.container = el)}>
+                {dimensions && (
                     <Scatter
                         rcmd ={rcmd}
+                        selectPerson={selectPerson}
+                        dimensions={dimensions}
+                        group={group}
                     />
+                )}
                 </div>
                 <div className="info">
                     <div className="basicinfo">
@@ -48,7 +75,7 @@ const Group = ({cardtitle, rcmd }) => {
                 </div>
             </div>
         </div>
-    );
-};
-
+        );
+    }
+}
 export default Group;

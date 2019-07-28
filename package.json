@@ -2,6 +2,7 @@
   "name": "insulin",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://aereeeee.github.io/insulin",
   "dependencies": {
     "d3": "^5.9.7",
     "react": "^16.8.6",
@@ -9,10 +10,11 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --max_old_space_size=8096 start",
+    "build": "react-scripts --max_old_space_size=8096 build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build&&gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,5 +30,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }

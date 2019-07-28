@@ -10,18 +10,11 @@ class App extends Component {
           script:'처방하기',
           graph:'예측 결과'
       },
-      group:0,
       person:null,
       rcmd:[10,13,15,8],
       expect: [0,0,0,0,0,0,0,0,
               0,0,0,0,0,0,0,0,
               0,0,0,0,0,0,0,0],
-  }
-r
-  selectGroup = (e) => {
-    this.setState({
-      group: e.target.value,
-    })
   }
   selectPerson = (e) => {
     this.setState({
@@ -41,6 +34,7 @@ r
       expect: newexpect,
     })
   }
+  
   graphChange = () => {
 
   }
@@ -68,7 +62,6 @@ r
         <Col span={9} offset={2}>
           <Group
               cardtitle={cardtitle.group}
-              selectGroup = {this.selectGroup}
               selectPerson = {this.selectPerson}
               sliderChange = {this.sliderChange} 
               rcmd = {rcmd}
