@@ -14,30 +14,13 @@ const SliderCtrl = ({cardtitle, rcmd, sliderChange }) => {
                 <div className="slider">
                     {title.map((v,idx)=>(
                         <>
-                        <div className="slidertitle">{v}</div>
                         <EachSlider 
                             eachrcmd={rcmd[idx]}
                             sliderChange={sliderChange}
+                            title={v}
                         />
                         </>
                     ))}
-                    {/* <div className="slidertitle">아침</div>
-                    <EachSlider 
-                        eachrcmd={rcmd[0]}
-
-                    />
-                    <div className="slidertitle">점심</div>
-                    <EachSlider 
-                        eachrcmd={rcmd[1]}
-                    />
-                    <div className="slidertitle">저녁</div>
-                    <EachSlider 
-                        eachrcmd={rcmd[2]}
-                    />
-                    <div className="slidertitle">기저</div>
-                    <EachSlider 
-                        eachrcmd={rcmd[3]}
-                    /> */}
                 </div>
             </div>
         </div>

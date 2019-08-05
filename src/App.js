@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Navigation, Group, SliderCtrl, Script, Graph } from './components';
 import { Row, Col } from 'antd';
+import {data, graphdata} from './utils';
 
+const insulin= data.map((v,idx)=>({...v,id:idx+1}));
 class App extends Component {
   state={
       cardtitle:{
@@ -11,49 +13,87 @@ class App extends Component {
           graph:'예측 결과'
       },
       person:null,
+      personData:{
+      "group": 0,
+      "x": 0,
+      "y": 0,
+      "name": "이름",
+      "age": 0,
+      "height": 0,
+      "weight": 0,
+      "bmi": 0,
+      "fsugar": 0,
+      "sugar": 0
+    },
+      group:'all',
+      data:insulin,
       rcmd:[10,13,15,8],
-      expect: [0,0,0,0,0,0,0,0,
-              0,0,0,0,0,0,0,0,
-              0,0,0,0,0,0,0,0],
+      expect: graphdata
   }
-  selectPerson = (e) => {
+
+  selectPerson = (value) => {
+    const find = insulin.find(v => v.id === +value);
     this.setState({
-      person: e.target.value,
+      person: value,
+      group: find.group,
+      personData:find,
       rcmd: this.state.rcmd.map(v => Math.floor(Math.random() * (20))),
-    })
+    });
+    this.personChange();
   }
-  sliderChange = (e) => {
-    const time=['9시','12시','18시'];
-    const newexpect=this.state.expect.map((v,idx)=>(
-      {
-        checkAt:time[idx%3],
-        sugar: Math.floor(Math.random() * (400) + 100)     
+  personChange = () => {
+    const today = Math.floor(Math.random() * (400) + 100);
+     const newexpect = this.state.expect.map((v, idx) => {
+       if( idx === 15){
+         return ({
+           ...v,
+           sugar:today,
+           fsugar: today
+         })
+       }
+       if (idx < 15) {
+         return ({
+           ...v,
+           sugar: Math.floor(Math.random() * (400) + 100),
+         })
+       } else {
+         return ({
+           ...v,
+           fsugar: Math.floor(Math.random() * (400) + 100),
+         })
+       }
+     })
+     this.setState({
+       expect: newexpect,
+     })
+  }
+  sliderChange = () => {
+    const newexpect=this.state.expect.map((v,idx)=>{
+      if (idx < 16) {
+        return (v)
+      }else{
+        return ({
+          ...v,
+          fsugar: Math.floor(Math.random() * (400) + 100),
+        })
       }
-    ));
+    })
     this.setState({
       expect: newexpect,
     })
   }
-  
-  graphChange = () => {
-
-  }
-  doPrescribe = () => {
-
-  }
-  searchPerson = () => {
-
-  }
 
   render() {
-    const { cardtitle, rcmd, person, expect }=this.state
+    const { cardtitle, rcmd, person, expect, data, group, personData }=this.state
     return (
       <>
       <Row gutter={10} justify={"space-between"} type={'flex'}>
         {/* Header */}
         <Col span={24}>
           <Navigation
-              searchPerson = {this.searchPerson} 
+              selectPerson = {this.selectPerson} 
+              data={data}
+              person={person}
           />
         </Col>
       </Row>
@@ -64,7 +104,11 @@ class App extends Component {
               cardtitle={cardtitle.group}
               selectPerson = {this.selectPerson}
               sliderChange = {this.sliderChange} 
+              data={data}
               rcmd = {rcmd}
+              person={person}
+              group={group}
+              personData={personData}
           />
         </Col>
         <Col span={7}>
