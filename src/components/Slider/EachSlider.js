@@ -10,33 +10,23 @@ const S = {
             font-size:12px;
         }
         .ant-slider-rail{
-            height:6px;
+            height:8px;
         }
         .ant-slider-track{
-            height:6px;
-
+            height:8px;
         }
         .ant-slider-step{
-            height: 6px;
+            height: 8px;
 
         }
         .ant-slider-handle{
-            width:15px;
-            height:15px;
+            width:16px;
+            height:16px;
         }
         .ant-slider-dot{
-            width:10px;
-            height:10px;
-        }
-        .ant-slider-mark span:nth-child(2){
-            margin-top:3px;
-            background: #fff;
-            color: #000;
-            border:1px solid #ddd;
-            z-index:999;
-            border-radius:2px;
-            padding:0 4px;
-            // opacity:0.7;
+            display:none;
+            width:0px;
+            height:0px;
         }
     `,
     InputNumber:styled(InputNumber)`
@@ -50,9 +40,9 @@ class EachSlider extends Component {
         this.state = {
             inputValue: this.props.eachrcmd,
             marks: {
-              0: '0mg',
-              eachrcmd: '추천',
-              20: '20mg',
+              0: '0',
+              eachrcmd: '추천mg',
+              20: '20',
             }
         }
     }
@@ -61,11 +51,11 @@ class EachSlider extends Component {
             this.setState({
                 inputValue: nextProps.eachrcmd,
                 marks: {
-                    0: '0mg',
-                    [nextProps.eachrcmd - 3]: '',
-                    [nextProps.eachrcmd]: '추천' + nextProps.eachrcmd,
-                    [nextProps.eachrcmd + 3]: '',
-                    20: '20mg',
+                    0: '0',
+                    // [nextProps.eachrcmd - 3]: '',
+                    [nextProps.eachrcmd]: '추천' + nextProps.eachrcmd + 'mg',
+                    // [nextProps.eachrcmd + 3]: '',
+                    20: '20',
                 }
             });
         }     
@@ -74,11 +64,11 @@ class EachSlider extends Component {
         const { eachrcmd } = this.props;
         this.setState({
             marks:{
-                0: '0mg',
-                [eachrcmd-3]:'',
-                [eachrcmd] : '추천 '+ eachrcmd,
-                [eachrcmd+3]: '',
-                20: '20mg',
+                0: '0',
+                // [eachrcmd-3]:'',
+                [eachrcmd]: '추천 ' + eachrcmd + 'mg',
+                // [eachrcmd+3]: '',
+                20: '20',
             }
         });
     }
@@ -107,7 +97,7 @@ class EachSlider extends Component {
             <S.InputNumber
                 min={0}
                 max={20}
-                formatter={value => `${value}mg`}
+                formatter={value => value}
                 style={{ width: '100%' }}
                 value={inputValue}
                 onChange={this.onChange}

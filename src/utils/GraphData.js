@@ -120,6 +120,12 @@ const graphdata = [
              id: 24,
             date: dayjs().add(2, 'day').format('MM.DD'),
             time: '18시', fsugar: Math.floor(Math.random() * (400) + 100)
-        }
+        },
+         {
+             id: 25,
+             date: dayjs().add(3, 'day').format('MM.DD'),
+             time: '9시',
+             fsugar: Math.floor(Math.random() * (400) + 100)
+         }
 ]
 export default graphdata;

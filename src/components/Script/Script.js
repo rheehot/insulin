@@ -15,7 +15,7 @@ const Script = ({cardtitle}) => {
                 </div>
                 <Button 
                     type="primary" 
-                    style={{height:'90px',margin:'10px',fontWeight:'bold'}}
+                    style={{height:'80px',margin:'10px',fontWeight:'bold'}}
                 >
                     처방하기
                 </Button>

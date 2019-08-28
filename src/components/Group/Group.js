@@ -9,7 +9,7 @@ class Group extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            group:this.props.gorup,
+            group:'all',
             dimensions: null,
             person:this.props.person,
             personData:this.props.personData,
@@ -47,7 +47,7 @@ class Group extends Component {
                 <CardHead
                 cardtitle={cardtitle}
                 />
-                <Select defaultValue ='all' style={{ width: 120, position:"absolute", top:'15px', right:'20px' }} onChange={this.selectGroup}>
+                <Select value ={group} style={{ width: 120, position:"absolute", top:'15px', right:'20px' }} onChange={this.selectGroup}>
                     <Option value='all'>ALL</Option>                    
                     <Option value={0}>그룹A</Option>
                     <Option value={1}>그룹B</Option>
@@ -69,7 +69,7 @@ class Group extends Component {
                     />
                 )}
                 </div>
-                <div className="info">
+                {/* <div className="info">
                     <div className="basicinfo">
                         <div className="name">{personData.name}</div>
                         <span className="gender">여성</span>
@@ -85,7 +85,7 @@ class Group extends Component {
                         <div className="emptybd">공복혈당: {personData.fsugar}</div>
                         <div className="bd">혈청: {personData.sugar}</div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
         );

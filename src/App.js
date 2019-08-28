@@ -3,14 +3,17 @@ import { Navigation, Group, SliderCtrl, Script, Graph } from './components';
 import { Row, Col } from 'antd';
 import {data, graphdata} from './utils';
 
-const insulin= data.map((v,idx)=>({...v,id:idx+1}));
+
+function getRandomInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+const insulin= data.map((v,idx)=>({...v,id:idx+1,room:`${getRandomInt(1,12)}-${getRandomInt(100,500)}`}));
 class App extends Component {
   state={
       cardtitle:{
           group:'환자군 분류',
           slider:'인슐린 투여 시나리오',
           script:'처방하기',
-          graph:'예측 결과'
+          graph:''
       },
       person:null,
       personData:{
@@ -97,6 +100,17 @@ class App extends Component {
           />
         </Col>
       </Row>
+      <Row gutter={10}>
+        <Col span={20} offset={2}>
+          <Graph 
+            expect={expect}
+            cardtitle={cardtitle.graph}
+            graphChange = {this.graphChange}
+            personData={personData}
+            person={person}
+          />
+        </Col>
+      </Row>
       {/* Group row */}
       <Row gutter={10}>
         <Col span={9} offset={2}>
@@ -126,16 +140,6 @@ class App extends Component {
           />
         </Col>
         </Row>
-        {/* graph row */}
-        <Row gutter={10}>
-        <Col span={20} offset={2}>
-          <Graph 
-            expect={expect}
-            cardtitle={cardtitle.graph}
-            graphChange = {this.graphChange}
-          />
-        </Col>
-      </Row>
       </>
     );
   }
