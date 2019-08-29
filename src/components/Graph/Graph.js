@@ -9,7 +9,6 @@ import {
     Tooltip,
     ReferenceArea,
     ResponsiveContainer,
-    BarChart, Bar,
 } from 'recharts';
 import "./Graph.scss";
 import {insulin} from '../../utils'
@@ -28,15 +27,15 @@ class Graph extends Component {
             }
         })
         return (
-            <div className={'cardWrapper'}>
+            <div className={'cardWrapper-graph'}>
                 <div className={'card'}>
                     <div className="info">
                         <div className="name"><span>병실</span>{personData.room}</div>
                         <div className="name"><span>등록번호</span>{person}</div>
                         <div className="name"><span>환자명</span>{personData.name}</div>
-                        <div className="tall"><span>키</span> {personData.height}</div>
-                        <div className="weight"><span>몸무게</span> {personData.weight}</div>
-                        <div className="bmi"><span>BMI</span> {personData.bmi}</div>
+                        <div className="tall"><span>키</span> {personData.height}cm</div>
+                        <div className="weight"><span>몸무게</span> {personData.weight}kg</div>
+                        <div className="bmi"><span>BMI</span> {personData.bmi}kg/m2</div>
                     </div>
                     <div className="graphbody">
                         <div className="linechart" >

@@ -6,8 +6,8 @@
 
 html,
 body {
-  height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
 html,
@@ -138,7 +138,6 @@ table {
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
-  overflow: hidden;
   -ms-overflow-style: none;
   -webkit-user-select: none;
   /* Safari 3.1+ */

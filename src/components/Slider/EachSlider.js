@@ -4,20 +4,17 @@ import styled from 'styled-components';
 
 const S = {
     Slider:styled(Slider)`
-        font-size:12px;
-        word-brake: keep-all;
-        span{
-            font-size:12px;
-        }
+        transition:all 0.5s;
         .ant-slider-rail{
             height:8px;
+            background-color:rgba(0,0,0,0,5) !important;
         }
         .ant-slider-track{
+            transition:width 0.3s;
             height:8px;
         }
         .ant-slider-step{
             height: 8px;
-
         }
         .ant-slider-handle{
             width:16px;
@@ -30,9 +27,22 @@ const S = {
         }
     `,
     InputNumber:styled(InputNumber)`
-        font-size:12px;
-
+        font-size:14px;
     `
+}
+const markStyle = {
+    marginTop:'0px',
+    fontSize:'12px',
+    color:'rgba(0,0,0,0.5)',
+}
+const rcmStyle = {
+    background: '#f5f5f5', 
+    fontSize:'14px', 
+    color:'#000', 
+    zIndex:99, 
+    borderRadius:'2px',
+    padding:'0 3px',
+    marginTop:'5px'
 }
 class EachSlider extends Component {
     constructor(props) {
@@ -40,9 +50,9 @@ class EachSlider extends Component {
         this.state = {
             inputValue: this.props.eachrcmd,
             marks: {
-              0: '0',
-              eachrcmd: '추천mg',
-              20: '20',
+              0: {style:markStyle, label:'0'},
+              eachrcmd: {style:rcmStyle, label:'추천mg'},
+              20: {style:markStyle, label:'20'}
             }
         }
     }
@@ -51,11 +61,9 @@ class EachSlider extends Component {
             this.setState({
                 inputValue: nextProps.eachrcmd,
                 marks: {
-                    0: '0',
-                    // [nextProps.eachrcmd - 3]: '',
-                    [nextProps.eachrcmd]: '추천' + nextProps.eachrcmd + 'mg',
-                    // [nextProps.eachrcmd + 3]: '',
-                    20: '20',
+                    0: {style:markStyle, label:'0'},
+                    [nextProps.eachrcmd]: {style:rcmStyle, label:`${nextProps.eachrcmd}mg`},
+                    20: {style:markStyle, label:'20'}
                 }
             });
         }     
@@ -63,12 +71,10 @@ class EachSlider extends Component {
     componentDidMount() {
         const { eachrcmd } = this.props;
         this.setState({
-            marks:{
-                0: '0',
-                // [eachrcmd-3]:'',
-                [eachrcmd]: '추천 ' + eachrcmd + 'mg',
-                // [eachrcmd+3]: '',
-                20: '20',
+            marks: {
+                0: {style:markStyle, label:'0'},
+                [eachrcmd]: {style:rcmStyle, label:`${eachrcmd}mg`},
+                20: {style:markStyle, label:'20'}
             }
         });
     }
@@ -78,34 +84,40 @@ class EachSlider extends Component {
         inputValue: value,
         });
     };
-    
+    formatter(value) {
+        return `${value}mg`;
+    }
     render() {
         const { inputValue, marks } = this.state;
         return (
         <Row gutter={24}>
             <div className="slidertitle">{this.props.title}</div> 
-            <Col span={18}>
-            <S.Slider
-                marks={marks} 
-                min={0}
-                max={20}
-                onChange={this.onChange}
-                value={typeof inputValue === 'number' ? inputValue : 0}
-            />
-            </Col>
-            <Col span={5}>
-            <S.InputNumber
-                min={0}
-                max={20}
-                formatter={value => value}
-                style={{ width: '100%' }}
-                value={inputValue}
-                onChange={this.onChange}
-            />
-            </Col>
+            <div className='sliderset'>
+                <Col span={18}>    
+                <S.Slider
+                    marks={marks} 
+                    min={0}
+                    max={20}
+                    onChange={this.onChange}
+                    tipFormatter={this.formatter}
+                    value={typeof inputValue === 'number' ? inputValue : 0}
+                />
+                </Col>
+                <Col span={5}>
+                <S.InputNumber
+                    min={0}
+                    max={20}
+                    formatter={value => value}
+                    style={{ width: '100%' }}
+                    value={inputValue}
+                    onChange={this.onChange}
+                />
+                </Col>
+            </div>
         </Row>
         );
     }
+    
 }
 
 export default EachSlider;

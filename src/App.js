@@ -3,10 +3,9 @@ import { Navigation, Group, SliderCtrl, Script, Graph } from './components';
 import { Row, Col } from 'antd';
 import {data, graphdata} from './utils';
 
-
 function getRandomInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
-
 const insulin= data.map((v,idx)=>({...v,id:idx+1,room:`${getRandomInt(1,12)}-${getRandomInt(100,500)}`}));
+
 class App extends Component {
   state={
       cardtitle:{
@@ -44,6 +43,7 @@ class App extends Component {
     });
     this.personChange();
   }
+
   personChange = () => {
     const today = Math.floor(Math.random() * (400) + 100);
      const newexpect = this.state.expect.map((v, idx) => {
@@ -70,6 +70,7 @@ class App extends Component {
        expect: newexpect,
      })
   }
+
   sliderChange = () => {
     const newexpect=this.state.expect.map((v,idx)=>{
       if (idx < 16) {
@@ -90,7 +91,13 @@ class App extends Component {
     const { cardtitle, rcmd, person, expect, data, group, personData }=this.state
     return (
       <>
-      <Row gutter={10} justify={"space-between"} type={'flex'}>
+      <Row>
+        {/* Header */}
+        <Col span={24}>
+          <div className='header'></div>
+        </Col>
+      </Row>
+      <Row>
         {/* Header */}
         <Col span={24}>
           <Navigation
@@ -100,8 +107,8 @@ class App extends Component {
           />
         </Col>
       </Row>
-      <Row gutter={10}>
-        <Col span={20} offset={2}>
+      <Row gutter={20}>
+        <Col span={22} offset={1}>
           <Graph 
             expect={expect}
             cardtitle={cardtitle.graph}
@@ -112,8 +119,8 @@ class App extends Component {
         </Col>
       </Row>
       {/* Group row */}
-      <Row gutter={10}>
-        <Col span={9} offset={2}>
+      <Row gutter={20}>
+        <Col span={8} offset={1}>
           <Group
               cardtitle={cardtitle.group}
               selectPerson = {this.selectPerson}
@@ -125,7 +132,7 @@ class App extends Component {
               personData={personData}
           />
         </Col>
-        <Col span={7}>
+        <Col span={8}>
           <SliderCtrl 
             cardtitle={cardtitle.slider}
             sliderChange = {this.sliderChange}
@@ -133,7 +140,7 @@ class App extends Component {
             rcmd = {rcmd}
           />
         </Col>
-        <Col span={4}>
+        <Col span={6}>
           <Script 
             cardtitle={cardtitle.script}
             doPrescribe = {this.doPrescribe}

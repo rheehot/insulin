@@ -7,17 +7,17 @@
     flex-direction: column;
     position: relative;
     .slidertitle{
-        // position: absolute;
-        // left:8px;
-        // top:-5px;
         word-break: keep-all;
-        font-size:12px;
-        padding-bottom:15px;
+        font-size:14px;
+        margin:20px;
+        margin-bottom:0;
+        border-bottom:1px solid #dadada;
+        color: rgba(0, 0, 0, 0.65);
+        padding-bottom:3px;
         font-weight: bold;
     }
-    .ant-row{
-        display:flex;
-        flex:1;
-        align-items: center;
-    }
+}
+.sliderset{
+    display:flex;
+    align-items: center;
 }

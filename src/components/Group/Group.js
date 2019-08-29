@@ -47,7 +47,7 @@ class Group extends Component {
                 <CardHead
                 cardtitle={cardtitle}
                 />
-                <Select value ={group} style={{ width: 120, position:"absolute", top:'15px', right:'20px' }} onChange={this.selectGroup}>
+                <Select value ={group} style={{ width: 120, position:"absolute", top:'20px', right:'30px' }} onChange={this.selectGroup}>
                     <Option value='all'>ALL</Option>                    
                     <Option value={0}>그룹A</Option>
                     <Option value={1}>그룹B</Option>

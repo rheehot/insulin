@@ -3,7 +3,7 @@ import EachSlider from './EachSlider';
 import CardHead from '../CardHead'
 import './SliderCtrl.scss';
 
-const title = ['아침','점심','저녁','기저'];
+const title = ['기저','아침','점심','저녁'];
 const SliderCtrl = ({cardtitle, rcmd, sliderChange }) => {
     return (
         <div className={'cardWrapper'}>
