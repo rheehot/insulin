@@ -1,17 +1,10 @@
-import React, { Component, PureComponent } from 'react';
-import Highcharts from 'highcharts'
-import xrange from 'highcharts/modules/xrange';
-import HighchartsReact from 'highcharts-react-official'
-import "./Graph.scss";
-import {insulin} from '../../utils'
-
-xrange(Highcharts);
-const options = {
+Highcharts.chart('container', {
     title: {text: ''},
     tooltip: { enabled: true },
     subtitle: {
         text: ''
     },
+
     xAxis: {
     type: 'datetime',
     tickInterval: 24 * 3600 * 1000,
@@ -22,6 +15,7 @@ const options = {
             minute: '',
         },
     },
+
     yAxis: [
         {
             title: {
@@ -37,8 +31,8 @@ const options = {
                 text: '식이(kcal)'
             },
             reversed: false,
-            top: '43%',
-            height: '27%',
+            top: '42%',
+            height: '23%',
             offset: 0,
             lineWidth: 1,
             min:50,
@@ -50,11 +44,23 @@ const options = {
             },
             categories: ['',''],
             reversed: true,
-            top: '75%',
-            height: '20%',
+            top: '70%',
+            height: '18%',
             offset: 0,
             lineWidth: 1
         },
+        {
+            title: {
+                text: '경구 인슐린'
+            },
+            categories: ['','' ],
+            reversed: true,
+            top: '92%',
+            height: '6%',
+            offset: 0,
+            lineWidth: 1,
+            gridLineWidth: 0,
+        }
     ],
     legend: {
         layout: 'vertical',
@@ -73,7 +79,6 @@ const options = {
             },
         },
     },
-
     series:[
     {
         type: 'line',
@@ -512,7 +517,7 @@ const options = {
                 } 
                 },
             ],
-        },
+        },  
         {
             type: 'xrange',
             styledMode: true,
@@ -673,44 +678,12 @@ const options = {
             },
         },
     ],
-  }
-class Graph extends Component {
-    constructor(props) {
-        super(props);
-    }
+    });
 
-    render() {
-        const { expect, personData, person} = this.props;
-        const datebar=[];
-        expect.forEach(v => {
-            if (v.time === '9시') {
-                datebar.push(v.date)
-            }
-        })
-        console.log(datebar)
-        return (
-            <div className={'cardWrapper-graph'}>
-                <div className={'card'}>
-                    <div className="info">
-                        <div className="name"><span>병실</span>{personData.room}</div>
-                        <div className="name"><span>등록번호</span>{person}</div>
-                        <div className="name"><span>환자명</span>{personData.name}</div>
-                        <div className="tall"><span>키</span> {personData.height}cm</div>
-                        <div className="weight"><span>몸무게</span> {personData.weight}kg</div>
-                        <div className="bmi"><span>BMI</span> {personData.bmi}kg/m2</div>
-                    </div>
-                    <div className="graphbody">
-                        <div className="linechart" >
-                        <HighchartsReact
-                            highcharts={Highcharts}
-                            options={options}
-                        />
-                        </div> 
-                    </div>  
-                </div>
-            </div>
-        );
-    }
-}
 
-export default Graph;
+
+
+
+
+
+

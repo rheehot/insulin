@@ -91,7 +91,7 @@ class App extends Component {
     const { cardtitle, rcmd, person, expect, data, group, personData }=this.state
     return (
       <>
-      <Row>
+      <Row> 
         {/* Header */}
         <Col span={24}>
           <div className='header'></div>
