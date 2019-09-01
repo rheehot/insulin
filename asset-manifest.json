@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/insulin/static/css/main.f0127299.chunk.css",
-    "main.js": "/insulin/static/js/main.1a12af5b.chunk.js",
-    "main.js.map": "/insulin/static/js/main.1a12af5b.chunk.js.map",
+    "main.css": "/insulin/static/css/main.df5ae9bd.chunk.css",
+    "main.js": "/insulin/static/js/main.bd002875.chunk.js",
+    "main.js.map": "/insulin/static/js/main.bd002875.chunk.js.map",
     "runtime~main.js": "/insulin/static/js/runtime~main.f533eff8.js",
     "runtime~main.js.map": "/insulin/static/js/runtime~main.f533eff8.js.map",
-    "static/css/2.cc4eab83.chunk.css": "/insulin/static/css/2.cc4eab83.chunk.css",
-    "static/js/2.16fc7de0.chunk.js": "/insulin/static/js/2.16fc7de0.chunk.js",
-    "static/js/2.16fc7de0.chunk.js.map": "/insulin/static/js/2.16fc7de0.chunk.js.map",
+    "static/css/2.33906fc6.chunk.css": "/insulin/static/css/2.33906fc6.chunk.css",
+    "static/js/2.a6bcc47b.chunk.js": "/insulin/static/js/2.a6bcc47b.chunk.js",
+    "static/js/2.a6bcc47b.chunk.js.map": "/insulin/static/js/2.a6bcc47b.chunk.js.map",
     "index.html": "/insulin/index.html",
-    "precache-manifest.956bcc46bad438059613b869a29a5b69.js": "/insulin/precache-manifest.956bcc46bad438059613b869a29a5b69.js",
+    "precache-manifest.eaebdaf3ef60a06291f045c6051859af.js": "/insulin/precache-manifest.eaebdaf3ef60a06291f045c6051859af.js",
     "service-worker.js": "/insulin/service-worker.js",
-    "static/css/2.cc4eab83.chunk.css.map": "/insulin/static/css/2.cc4eab83.chunk.css.map",
-    "static/css/main.f0127299.chunk.css.map": "/insulin/static/css/main.f0127299.chunk.css.map",
+    "static/css/2.33906fc6.chunk.css.map": "/insulin/static/css/2.33906fc6.chunk.css.map",
+    "static/css/main.df5ae9bd.chunk.css.map": "/insulin/static/css/main.df5ae9bd.chunk.css.map",
     "static/media/logo.png": "/insulin/static/media/logo.7ef7d2c1.png"
   }
 }
