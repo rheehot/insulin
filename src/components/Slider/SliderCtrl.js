@@ -13,13 +13,12 @@ const SliderCtrl = ({cardtitle, rcmd, sliderChange }) => {
                 />
                 <div className="slider">
                     {title.map((v,idx)=>(
-                        <>
                         <EachSlider 
+                            key = {idx}
                             eachrcmd={rcmd[idx]}
                             sliderChange={sliderChange}
                             title={v}
                         />
-                        </>
                     ))}
                 </div>
             </div>

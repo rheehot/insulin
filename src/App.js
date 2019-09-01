@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Navigation, Group, SliderCtrl, Script, Graph } from './components';
 import { Row, Col } from 'antd';
-import {data, graphdata} from './utils';
+import {data, graphdata, todayKr, getRandomSugar, fooddata } from './utils';
 
 function getRandomInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
-const insulin= data.map((v,idx)=>({...v,id:idx+1,room:`${getRandomInt(1,12)}-${getRandomInt(100,500)}`}));
+const patientsData= data.map((v,idx)=>({...v,id:idx+1,room:`${getRandomInt(1,12)}-${getRandomInt(100,500)}`}));
 
 class App extends Component {
   state={
@@ -28,13 +28,13 @@ class App extends Component {
       "sugar": 0
     },
       group:'all',
-      data:insulin,
-      rcmd:[10,13,15,8],
-      expect: graphdata
+      patients: patientsData,
+      rcmd:[0,0,0,0],
+      graphdata:graphdata,
   }
 
   selectPerson = (value) => {
-    const find = insulin.find(v => v.id === +value);
+    const find = this.state.patients.find(v => v.id === +value);
     this.setState({
       person: value,
       group: find.group,
@@ -45,50 +45,31 @@ class App extends Component {
   }
 
   personChange = () => {
-    const today = Math.floor(Math.random() * (400) + 100);
-     const newexpect = this.state.expect.map((v, idx) => {
-       if( idx === 15){
-         return ({
-           ...v,
-           sugar:today,
-           fsugar: today
-         })
-       }
-       if (idx < 15) {
-         return ({
-           ...v,
-           sugar: Math.floor(Math.random() * (400) + 100),
-         })
-       } else {
-         return ({
-           ...v,
-           fsugar: Math.floor(Math.random() * (400) + 100),
-         })
-       }
-     })
+    const newdata = this.state.graphdata.map(d=>{
+      const range = d.status === '공복' ? [50,200]:[100,500];
+      d.sugar=getRandomSugar(...range);
+      return d;
+    })
      this.setState({
-       expect: newexpect,
+       graphdata: newdata
      })
   }
 
   sliderChange = () => {
-    const newexpect=this.state.expect.map((v,idx)=>{
-      if (idx < 16) {
-        return (v)
-      }else{
-        return ({
-          ...v,
-          fsugar: Math.floor(Math.random() * (400) + 100),
-        })
+    const newgarphdata=this.state.graphdata.map(d=>{
+      const range = d.status === '공복' ? [50,200]:[100,500];
+      if(d.date > + todayKr){
+        d.sugar=getRandomSugar(...range);
       }
+      return d;
     })
     this.setState({
-      expect: newexpect,
+      graphdata:newgarphdata,
     })
   }
 
   render() {
-    const { cardtitle, rcmd, person, expect, data, group, personData }=this.state
+    const { cardtitle, rcmd, person, graphdata, patients, group, personData }=this.state
     return (
       <>
       <Row> 
@@ -102,15 +83,15 @@ class App extends Component {
         <Col span={24}>
           <Navigation
               selectPerson = {this.selectPerson} 
-              data={data}
+              data={patients}
               person={person}
           />
         </Col>
       </Row>
       <Row gutter={20}>
-        <Col span={22} offset={1}>
+        <Col span={20} offset={2}>
           <Graph 
-            expect={expect}
+            graphdata={graphdata}
             cardtitle={cardtitle.graph}
             graphChange = {this.graphChange}
             personData={personData}
@@ -120,12 +101,12 @@ class App extends Component {
       </Row>
       {/* Group row */}
       <Row gutter={20}>
-        <Col span={8} offset={1}>
+        <Col span={8} offset={2}>
           <Group
               cardtitle={cardtitle.group}
               selectPerson = {this.selectPerson}
               sliderChange = {this.sliderChange} 
-              data={data}
+              data={patients}
               rcmd = {rcmd}
               person={person}
               group={group}
@@ -140,7 +121,7 @@ class App extends Component {
             rcmd = {rcmd}
           />
         </Col>
-        <Col span={6}>
+        <Col span={4}>
           <Script 
             cardtitle={cardtitle.script}
             doPrescribe = {this.doPrescribe}

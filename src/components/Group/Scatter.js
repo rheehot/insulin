@@ -15,13 +15,6 @@ const colorchart={
   4: ['#fa541c'],
   5: ['#fa8c16'],
   6: ['#1890ff'],
-  // 0: ['#ff4d4f'],
-  // 1: ['#ff7a45'],
-  // 2: ['#ffa940'],
-  // 3: ['#36cfc9'],
-  // 4: ['#40a9ff'],
-  // 5: ['#597ef7'],
-  // 6: ['#9254de'],
 }
 class Scatter extends Component {
     constructor(props) {
@@ -60,11 +53,10 @@ componentDidMount(){
   d3.select('.selected').moveToFront();
 }
 componentDidUpdate() {
-  d3.select('.selected').moveToFront();
+    d3.select('.selected').moveToFront();
 }
 render() {
   const {width, height, scalex, scaley} = this.state;
-  console.log(this.props.person)
     return (
       <div>
         <svg
@@ -77,30 +69,26 @@ render() {
               const dotColor= colorchart[d.group];
               if (d.id === +this.props.person) {
                 return (
-                <>
+                <g className = "selected" key={i}>
                 <circle
                     cx={scalex((d.x-100)*0.8)}
                     cy={scaley(d.y*6)}
-                    r="5"
+                    r="7"
                     strokeWidth={2}
                     stroke = '#fff'
                     strokeOpacity = {1}
-                    class="selected"
-                    fill = '#f00'
-                    key={i}
+                    fill = 'rgb(217,83,79)'
                 />
                  <circle
                     cx={scalex((d.x-100)*0.8)}
                     cy={scaley(d.y*6)}
                     r="20"
-                    strokeWidth={1}
-                    stroke = '#f00'
-                    fill='none'
-                    class = "selected"                    
+                    strokeWidth={2}
+                    stroke = 'rgb(217,83,79)'
+                    fill='none'                 
                     strokeOpacity = {1}
-                    key={i}
                 />
-                </>)
+                </g>)
               }else{
                 return <circle
                     cx={scalex((d.x-100)*0.8)}

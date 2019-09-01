@@ -15,7 +15,6 @@ class Group extends Component {
             personData:this.props.personData,
         };
     }
-
     componentDidMount() {
         this.setState({
             dimensions: {
@@ -69,23 +68,6 @@ class Group extends Component {
                     />
                 )}
                 </div>
-                {/* <div className="info">
-                    <div className="basicinfo">
-                        <div className="name">{personData.name}</div>
-                        <span className="gender">여성</span>
-                        <span className="age">  {personData.age}</span>
-                    </div>
-                    <div className="physical">
-                        <div className="groupnum">그룹: {personData.group}</div>
-                        <div className="tall">키: {personData.height}</div>
-                        <div className="weight">몸무게: {personData.weight}</div>
-                    </div>
-                    <div className="medical">
-                        <div className="bmi">BMI: {personData.bmi}</div>
-                        <div className="emptybd">공복혈당: {personData.fsugar}</div>
-                        <div className="bd">혈청: {personData.sugar}</div>
-                    </div>
-                </div> */}
             </div>
         </div>
         );
