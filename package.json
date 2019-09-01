@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://aereeeee.github.io/insulin",
+  "license": "MIT",
   "dependencies": {
     "antd": "^3.20.7",
     "babel-plugin-import": "^1.12.0",
