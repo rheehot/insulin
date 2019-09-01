@@ -5,7 +5,7 @@ import {data, graphdata, todayKr, getRandomSugar, fooddata } from './utils';
 
 function getRandomInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 const patientsData= data.map((v,idx)=>({...v,id:idx+1,room:`${getRandomInt(1,12)}-${getRandomInt(100,500)}`}));
-
+const sample = [132,317,155,178,97,182,173,282,79,180,457,187,102,321,172,205,102,165,171,435,150,200,168,189,162,189];
 class App extends Component {
   state={
       cardtitle:{
@@ -33,9 +33,9 @@ class App extends Component {
       graphdata:graphdata,
   }
 
-  selectPerson = (value) => {
+  selectPerson = async (value) => {
     const find = this.state.patients.find(v => v.id === +value);
-    this.setState({
+    await this.setState({
       person: value,
       group: find.group,
       personData:find,
@@ -45,11 +45,19 @@ class App extends Component {
   }
 
   personChange = () => {
-    const newdata = this.state.graphdata.map(d=>{
-      const range = d.status === '공복' ? [50,200]:[100,500];
-      d.sugar=getRandomSugar(...range);
-      return d;
-    })
+    let newdata;
+    if(+this.state.person === 1 ){
+      newdata = this.state.graphdata.map((d, idx)=>{
+        d.sugar=sample[idx];
+        return d;
+      })
+    }else{
+      newdata = this.state.graphdata.map(d=>{
+        const range = d.status === '공복' ? [50,200]:[100,500];
+        d.sugar=getRandomSugar(...range);
+        return d;
+      })
+    }
      this.setState({
        graphdata: newdata
      })

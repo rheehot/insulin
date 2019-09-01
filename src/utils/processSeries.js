@@ -170,19 +170,19 @@ function processContinue() {
         borderColor: '',
         pointWidth: 20,
         data: [
+            // {
+            //     x: getTimeStamp('sub',4,5),
+            //     x2: getTimeStamp('sub',0,4),
+            //     y: 0,
+            //     color:"rgba(58,78,206,0.9)",
+            //     borderColor:"#ffffff",
+            //     dataLabels: {
+            //         format:"10",
+            //         color:"#ffffff",
+            //                 }, 
+            // },
             {
-                x: getTimeStamp('sub',4,5),
-                x2: getTimeStamp('sub',0,4),
-                y: 0,
-                color:"rgba(58,78,206,0.9)",
-                borderColor:"#ffffff",
-                dataLabels: {
-                    format:"10",
-                    color:"#ffffff",
-                            }, 
-            },
-            {
-                x: getTimeStamp('sub',0,4),
+                x: getTimeStamp('sub',4,4),
                 x2: getTimeStamp('sub',0,3),
                 y: 0,
                 color:"rgba(58,78,206,0.9)",
@@ -238,7 +238,7 @@ function processContinue() {
                 color:"#ffffff",
                 borderColor:"#cccccc",
                 dataLabels: {
-                    format:"12(예상)"
+                    format:"12"
                             }, 
             },
             {
@@ -248,7 +248,7 @@ function processContinue() {
                 color:"#ffffff",
                 borderColor:"#cccccc",
                 dataLabels: {
-                    format:"12(예상)"
+                    format:"12"
                             }, 
             },
         ],
@@ -266,20 +266,30 @@ function processQuick(){
             borderColor: '',
             pointWidth: 20,
             data: [
+                // {
+                //     x: getTimeStamp('sub',4,5),
+                //     x2:getTimeStamp('sub',14,5),
+                //     y: 1,
+                //     color:"rgba(228,57,55,1)",
+                //     borderColor:"#ffffff",
+                //     dataLabels: {
+                //         format:"6",
+                //         color:"#ffffff",
+                //                 }, 
+                // },
+                // {
+                //     x: getTimeStamp('sub',14,5),
+                //     x2:getTimeStamp('sub',0,4),
+                //     y: 1,
+                //     color:"rgba(228,57,55,0.9)",
+                //     borderColor:"#ffffff",
+                //     dataLabels: {
+                //         format:"6"
+                //                 }, 
+                // },
                 {
-                    x: getTimeStamp('sub',4,5),
-                    x2:getTimeStamp('sub',14,5),
-                    y: 1,
-                    color:"rgba(228,57,55,1)",
-                    borderColor:"#ffffff",
-                    dataLabels: {
-                        format:"6",
-                        color:"#ffffff",
-                                }, 
-                },
-                {
-                    x: getTimeStamp('sub',14,5),
-                    x2:getTimeStamp('sub',0,4),
+                    x: getTimeStamp('sub',4,4),
+                    x2:getTimeStamp('sub',14,4),
                     y: 1,
                     color:"rgba(228,57,55,0.9)",
                     borderColor:"#ffffff",
@@ -288,17 +298,7 @@ function processQuick(){
                                 }, 
                 },
                 {
-                    x: getTimeStamp('sub',0,4),
-                    x2:getTimeStamp('sub',12,4),
-                    y: 1,
-                    color:"rgba(228,57,55,0.9)",
-                    borderColor:"#ffffff",
-                    dataLabels: {
-                        format:"6"
-                                }, 
-                },
-                {
-                    x: getTimeStamp('sub',12,4),
+                    x: getTimeStamp('sub',14,4),
                     x2:getTimeStamp('sub',0,3),
                     y: 1,
                     color:"rgba(228,57,55,0.9)",
@@ -394,7 +394,7 @@ function processQuick(){
                     color:"#ffffff",
                     borderColor:"#cccccc",
                     dataLabels: {
-                        format:"4(예상)"
+                        format:"4"
                                 }, 
                 },
                 {
@@ -404,7 +404,7 @@ function processQuick(){
                     color:"#ffffff",
                     borderColor:"#cccccc",
                     dataLabels: {
-                        format:"4(예상)"
+                        format:"4"
                                 }, 
                 },
                 {
@@ -414,7 +414,7 @@ function processQuick(){
                     color:"#ffffff",
                     borderColor:"#cccccc",
                     dataLabels: {
-                        format:"4(예상)"
+                        format:"4"
                                 }, 
                 },
                 {
@@ -424,7 +424,7 @@ function processQuick(){
                     color:"#ffffff",
                     borderColor:"#cccccc",
                     dataLabels: {
-                        format:"4(예상)"
+                        format:"4"
                                 }, 
                 },
                 

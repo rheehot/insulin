@@ -26,7 +26,7 @@ const staticoptions = {
     yAxis: [
         {
             title: {
-                text: '혈당수치'
+                text: '혈당(mg/dL)'
             },
             height: '38%',
             lineWidth: 1,
@@ -37,7 +37,7 @@ const staticoptions = {
         }, 
         {
             title: {
-                text: '식이(kcal)'
+                text: '경구식이(kcal)'
             },
             reversed: false,
             top: '43%',
@@ -49,7 +49,7 @@ const staticoptions = {
         },
         {
             title: {
-                text: '인슐린'
+                text: '인슐린(U)'
             },
             categories: ['',''],
             reversed: true,
@@ -85,21 +85,6 @@ class Graph extends Component {
         this.state = {
             options : staticoptions
         }
-    }
-    componentDidMount(){
-        const newseries = [
-            processObserve(this.props.graphdata,''),
-            processExpect(this.props.graphdata,''),
-            processStable(this.props.graphdata),
-            processFood(fooddata),
-            processContinue(),
-            processQuick()
-        ]
-        this.setState({
-            options: { series : newseries }
-        })
-        console.log(this.state.options);
-
     }
     componentWillReceiveProps(nextProps) {
         const newseries= [

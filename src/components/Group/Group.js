@@ -5,6 +5,9 @@ import CardHead from '../CardHead'
 import "./Group.scss";
 
 const { Option } = Select;
+const groupscript = {
+    3:'* 신장기능이 평균이지만, 유병기간이 긴 그룹'
+};
 class Group extends Component {
     constructor(props) {
         super(props);
@@ -67,6 +70,11 @@ class Group extends Component {
                         person={person}
                     />
                 )}
+                <div className = 'groupscript'>
+                    {group !== 'all' && (
+                        groupscript[3]
+                    )}
+                </div>
                 </div>
             </div>
         </div>

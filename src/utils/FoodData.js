@@ -6,7 +6,7 @@ function getRandomKcal(min,max){
 const fooddata = [
         {   
             day:1,
-            date: getTimeStamp('sub',8,5),
+            date: getTimeStamp('sub',8,4),
             time: '8시', 
             status: '간식',
             name: '딸기우유 1개',
@@ -14,7 +14,7 @@ const fooddata = [
         },
         {
             day:1,
-            date: getTimeStamp('sub',12,5),
+            date: getTimeStamp('sub',12,4),
             status: '',
             name: '',
             time: '12시', 
@@ -22,7 +22,7 @@ const fooddata = [
         },
         {
             day:1,
-            date: getTimeStamp('sub',20,5),
+            date: getTimeStamp('sub',20,4),
             status: '',
             name: '',
             time: '20시', 
@@ -30,7 +30,7 @@ const fooddata = [
         },
         {   
             day:2,
-            date: getTimeStamp('sub',5,4),
+            date: getTimeStamp('sub',5,3),
             time: '5시', 
             status: '간식',
             name: '토마토주스 1/2개',
@@ -38,7 +38,7 @@ const fooddata = [
         },
         {
             day:2,
-            date: getTimeStamp('sub',8,4),
+            date: getTimeStamp('sub',8,3),
             status: '',
             name: '',
             time: '8시', 
@@ -46,7 +46,7 @@ const fooddata = [
         },
         {
             day:2,
-            date: getTimeStamp('sub',12,4),
+            date: getTimeStamp('sub',12,3),
             status: '',
             name: '',
             time: '12시', 
@@ -54,7 +54,7 @@ const fooddata = [
         },
         {
             day:2,
-            date: getTimeStamp('sub',20,4),
+            date: getTimeStamp('sub',20,3),
             time: '20시', 
             status: '간식',
             name:'베이글 1개',
@@ -62,7 +62,7 @@ const fooddata = [
         },
         {
             day:3,
-            date: getTimeStamp('sub',9,3),
+            date: getTimeStamp('sub',9,2),
             status: '',
             name:'',
             time: '9시', 
@@ -70,7 +70,7 @@ const fooddata = [
         },
         {
             day:3,
-            date: getTimeStamp('sub',13,3),
+            date: getTimeStamp('sub',13,2),
             status: '간식',
             time: '13시',
             name:'포도 1송이', 
@@ -78,7 +78,7 @@ const fooddata = [
         },
         {
             day:3,
-            date: getTimeStamp('sub',20,3),
+            date: getTimeStamp('sub',20,2),
             time: '20시', 
             status: '',
             name:'',
@@ -86,7 +86,7 @@ const fooddata = [
         },
         {
             day:4,
-            date: getTimeStamp('sub',8,2),
+            date: getTimeStamp('sub',8,1),
             status: '간식',
             name:'초콜릿 1개',
             time: '8시', 
@@ -94,7 +94,7 @@ const fooddata = [
         },
         {
             day:4,
-            date: getTimeStamp('sub',14,2),
+            date: getTimeStamp('sub',14,1),
             status: '',
             name:'',
             time: '14시', 
@@ -102,7 +102,7 @@ const fooddata = [
         },
         {
             day:4,
-            date: getTimeStamp('sub',18,2),
+            date: getTimeStamp('sub',18,1),
             status: '',
             name:'',
             time: '18시', 
@@ -110,7 +110,7 @@ const fooddata = [
         },
         {
             day:5,
-            date: getTimeStamp('sub',9,1),
+            date: getTimeStamp('none',9),
             status: '',
             name:'',
             time: '9시', 
@@ -118,7 +118,7 @@ const fooddata = [
         },
         {
             day:5,
-            date: getTimeStamp('sub',12,1),
+            date: getTimeStamp('none',12),
             status: '',
             name:'',
             time: '12시', 
@@ -126,7 +126,7 @@ const fooddata = [
         },
         {
             day:5,
-            date: getTimeStamp('sub',18,1),
+            date: getTimeStamp('none',18),
             status: '간식',
             name: '오렌지 주스 1/2',
             time: '18시', 

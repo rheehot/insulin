@@ -1,6 +1,8 @@
 @import '../../common';
 
 .scripttxt{
+    // word-break: keep-all;
+    flex:1;
     overflow-Y:scroll;
     overflow-X:hidden;
     margin:20px;

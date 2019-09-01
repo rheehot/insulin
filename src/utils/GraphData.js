@@ -6,33 +6,33 @@ function getRandomSugar(min,max){
     return Math.floor(Math.random() * (max - min)) + min;
 }
 const graphdata = [
-        {   
-            day:1,
-            date: getTimeStamp('sub',5,5),
-            time: '5시', 
-            status: '공복',
-            sugar: getRandomSugar(50,200),
-        },
-        {
-            day:1,
-            date: getTimeStamp('sub',9,5),
-            status: '아침 식후',
-            time: '9시', 
-            sugar: getRandomSugar(100,500),
-        },
-        {
-            day:1,
-            date: getTimeStamp('sub',14,5),
-            status: '점심 식후',
-            time: '14시', 
-            sugar: getRandomSugar(100,500),
-        },
-        {
-            day:1,
-            date: getTimeStamp('sub',20,5),
-            time: '20시', 
-            sugar: getRandomSugar(100,500),
-        },
+        // {   
+        //     day:1,
+        //     date: getTimeStamp('sub',5,5),
+        //     time: '5시', 
+        //     status: '공복',
+        //     sugar: getRandomSugar(50,200),
+        // },
+        // {
+        //     day:1,
+        //     date: getTimeStamp('sub',9,5),
+        //     status: '아침 식후',
+        //     time: '9시', 
+        //     sugar: getRandomSugar(100,500),
+        // },
+        // {
+        //     day:1,
+        //     date: getTimeStamp('sub',14,5),
+        //     status: '점심 식후',
+        //     time: '14시', 
+        //     sugar: getRandomSugar(100,500),
+        // },
+        // {
+        //     day:1,
+        //     date: getTimeStamp('sub',20,5),
+        //     time: '20시', 
+        //     sugar: getRandomSugar(100,500),
+        // },
         {   
             day:2,
             date: getTimeStamp('sub',5,4),
