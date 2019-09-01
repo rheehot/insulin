@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7315475e338e1e68ad9652d00b6de726",
+    "revision": "3e5af87a05f2038f807a6842231c5a0f",
     "url": "/insulin/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/insulin/static/css/2.33906fc6.chunk.css"
   },
   {
-    "revision": "220736b3ed6e7970cdf8",
-    "url": "/insulin/static/css/main.df5ae9bd.chunk.css"
+    "revision": "c80a0c63fede6b3f5329",
+    "url": "/insulin/static/css/main.e8421752.chunk.css"
   },
   {
     "revision": "6fd0d1fd328e29fbcc2b",
     "url": "/insulin/static/js/2.a6bcc47b.chunk.js"
   },
   {
-    "revision": "220736b3ed6e7970cdf8",
+    "revision": "c80a0c63fede6b3f5329",
     "url": "/insulin/static/js/main.bd002875.chunk.js"
   },
   {
