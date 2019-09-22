@@ -265,8 +265,8 @@ function processQuick() {
         x: getTimeStamp("sub", 3, 4),
         x2: getTimeStamp("sub", 10, 4),
         y: 1,
-        color: "rgba(228,57,55,0.9)",
-        borderColor: "#ffffff",
+        color: "#ffffff",
+        borderColor: "#cccccc",
         dataLabels: {
           format: "0"
         }
@@ -295,8 +295,8 @@ function processQuick() {
         x: getTimeStamp("sub", 0, 3),
         x2: getTimeStamp("sub", 8, 3),
         y: 1,
-        color: "rgba(228,57,55,0.9)",
-        borderColor: "#ffffff",
+        color: "#ffffff",
+        borderColor: "#cccccc",
         dataLabels: {
           format: "0"
         }
@@ -325,8 +325,8 @@ function processQuick() {
         x: getTimeStamp("sub", 0, 2),
         x2: getTimeStamp("sub", 8, 2),
         y: 1,
-        color: "rgba(228,57,55,0.9)",
-        borderColor: "#ffffff",
+        color: "#ffffff",
+        borderColor: "#cccccc",
         dataLabels: {
           format: "0"
         }
@@ -355,8 +355,8 @@ function processQuick() {
         x: getTimeStamp("sub", 0, 1),
         x2: getTimeStamp("sub", 8, 1),
         y: 1,
-        color: "rgba(228,57,55,0.9)",
-        borderColor: "#ffffff",
+        color: "#ffffff",
+        borderColor: "#cccccc",
         dataLabels: {
           format: "0"
         }
@@ -385,8 +385,8 @@ function processQuick() {
         x: getTimeStamp("none", 0),
         x2: getTimeStamp("none", 8),
         y: 1,
-        color: "rgba(228,57,55,0.9)",
-        borderColor: "#ffffff",
+        color: "#ffffff",
+        borderColor: "#cccccc",
         dataLabels: {
           format: "0"
         }
