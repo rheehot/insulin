@@ -418,7 +418,7 @@ function processQuick() {
         color: "#ffffff",
         borderColor: "#cccccc",
         dataLabels: {
-          format: "0"
+          format: "4"
         }
       },
       {
@@ -448,7 +448,7 @@ function processQuick() {
         color: "#ffffff",
         borderColor: "#cccccc",
         dataLabels: {
-          format: "0"
+          format: "4"
         }
       },
       {
