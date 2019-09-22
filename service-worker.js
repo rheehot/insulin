@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/insulin/precache-manifest.8e978c58ea4a9463b494a7d4906dd1b7.js"
+  "/insulin/precache-manifest.006cebaee03f4abc0b461abb20fc472f.js"
 );
 
 self.addEventListener('message', (event) => {
