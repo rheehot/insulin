@@ -1,18 +1,21 @@
-import getTimeStamp from "./getTimStamp";
-import { todayKr } from "./GraphData";
+import getTimeStamp from "./getTimeStamp";
+import todayKr from "./todayKr";
 
-function processObserve(graphdata, format) {
-  const group1 = graphdata.filter(d => {
+//과거 혈당그래프
+function processObserve(graphData, format) {
+  //현재 시간기준으로 데이터를 두그룹으로 나눔
+  const group1 = graphData.filter(d => {
     return d.date <= +todayKr;
   });
 
-  const group2 = graphdata.filter(d => {
+  const group2 = graphData.filter(d => {
     return d.date > +todayKr;
   });
 
-  const filtereddata = [...group1, group2[0]];
+  //filteredData는 과거데이터와 현재시점 데이터를 포함한다.
+  const filteredData = [...group1, group2[0]];
 
-  const res = filtereddata.map(data => {
+  const res = filteredData.map(data => {
     const res = {
       x: data.date,
       y: data.sugar,
@@ -59,11 +62,12 @@ function processObserve(graphdata, format) {
   };
 }
 
-function processExpect(graphdata, format) {
-  const filtereddata = graphdata.filter(d => {
+//예측 혈당 그래프
+function processExpect(graphData, format) {
+  const filteredData = graphData.filter(d => {
     return d.date > +todayKr;
   });
-  const res = filtereddata.map((data, idx) => {
+  const res = filteredData.map((data, idx) => {
     const res = {
       x: data.date,
       y: data.sugar,
@@ -79,7 +83,7 @@ function processExpect(graphdata, format) {
       res.marker = {
         enabled: false
       };
-    } else if (idx === filtereddata.length - 1) {
+    } else if (idx === filteredData.length - 1) {
       res.marker = {
         symbol: "circle",
         fillColor: "#ff0000",
@@ -105,38 +109,9 @@ function processExpect(graphdata, format) {
     data: res
   };
 }
-
-function processFood(graphdata) {
-  const res = graphdata.map(data => {
-    const res = {
-      x: data.date,
-      y: data.kcal
-    };
-    if (data.status === "간식") {
-      res.color = "#d9534f";
-      res.dataLabels = {
-        format: `${data.name}(${data.kcal}kcal)`,
-        enabled: true
-      };
-    }
-    return res;
-  });
-  return {
-    name: "간식",
-    type: "column",
-    yAxis: 1,
-    pointWidth: 20,
-    color: "rgba(124,191,174,1)",
-    dataLabels: {
-      enabled: false
-    },
-    data: res
-  };
-}
-
-//
-function processStable(graphdata) {
-  const dateRange = [graphdata[0].date, graphdata[graphdata.length - 1].date];
+// 정상 혈당 구간 표시 (140-180)
+function processStable(graphData) {
+  const dateRange = [graphData[0].date, graphData[graphData.length - 1].date];
   return {
     type: "line",
     name: "",
@@ -167,6 +142,37 @@ function processStable(graphdata) {
   };
 }
 
+//경구식이 그래프
+function processFood(graphData) {
+  const res = graphData.map(data => {
+    const res = {
+      x: data.date,
+      y: data.kcal
+    };
+    if (data.status === "간식") {
+      res.color = "#d9534f";
+      res.dataLabels = {
+        format: `${data.name}(${data.kcal}kcal)`,
+        enabled: true
+      };
+    }
+    return res;
+  });
+  return {
+    name: "간식",
+    type: "column",
+    yAxis: 1,
+    pointWidth: 16,
+    color: "rgba(124,191,174,1)",
+    dataLabels: {
+      enabled: false
+    },
+    data: res
+  };
+}
+
+//**인슐린 지속, 속효 그래프는 아직 데이터가 없어서 샘플로 정해진 값을 반환합니다.**
+//인슐린 그래프 지속
 function processContinue() {
   return {
     type: "xrange",
@@ -252,6 +258,8 @@ function processContinue() {
     }
   };
 }
+
+//인슐린 그래프 속효
 function processQuick() {
   return {
     type: "xrange",

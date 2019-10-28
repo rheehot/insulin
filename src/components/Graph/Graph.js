@@ -3,8 +3,8 @@ import Highcharts from "highcharts";
 import xrange from "highcharts/modules/xrange";
 import HighchartsReact from "highcharts-react-official";
 import "./Graph.scss";
+import { foodData } from "../../asset";
 import {
-  fooddata,
   processObserve,
   processExpect,
   processStable,
@@ -54,7 +54,7 @@ const staticoptions = {
       offset: 0,
       lineWidth: 1,
       min: 50,
-      max: 1001
+      max: 999
     },
     {
       title: {
@@ -97,10 +97,10 @@ class Graph extends Component {
   }
   componentWillReceiveProps(nextProps) {
     const newseries = [
-      processObserve(nextProps.graphdata, ""),
-      processExpect(nextProps.graphdata, ""),
-      processStable(nextProps.graphdata),
-      processFood(fooddata),
+      processObserve(nextProps.graphData, ""),
+      processExpect(nextProps.graphData, ""),
+      processStable(nextProps.graphData),
+      processFood(foodData),
       processContinue(),
       processQuick()
     ];

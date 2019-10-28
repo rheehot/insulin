@@ -1,60 +1,7 @@
 import React, { Component } from "react";
-import { Slider, InputNumber, Row, Col, Input } from "antd";
+import { Slider, InputNumber, Row, Col } from "antd";
 import styled from "styled-components";
 
-const S = {
-  SliderRed: styled(Slider)`
-    transition:all 0.5s;
-    .ant-slider-rail{
-        height:8px;
-        background-color:rgba(0,0,0,0,5) !important;
-    }
-    .ant-slider-track{
-        transition:width 0.3s;
-        height:8px;
-        background-color:rgb(217,83,79) !important;
-    }
-    .ant-slider-step{
-        height: 8px;
-    }
-    .ant-slider-handle{
-        border: solid 2px rgb(217,83,79) !important
-        width:16px;
-        height:16px;
-    }
-    .ant-slider-dot{
-        display:none;
-        width:0px;
-        height:0px;
-    }
-`,
-  Slider: styled(Slider)`
-    transition: all 0.5s;
-    .ant-slider-rail {
-      height: 8px;
-      background-color: rgba(0, 0, 0, 0, 5) !important;
-    }
-    .ant-slider-track {
-      transition: width 0.3s;
-      height: 8px;
-    }
-    .ant-slider-step {
-      height: 8px;
-    }
-    .ant-slider-handle {
-      width: 16px;
-      height: 16px;
-    }
-    .ant-slider-dot {
-      display: none;
-      width: 0px;
-      height: 0px;
-    }
-  `,
-  InputNumber: styled(InputNumber)`
-    font-size: 14px;
-  `
-};
 const markStyle = {
   marginTop: "0px",
   fontSize: "12px",
@@ -69,6 +16,7 @@ const rcmStyle = {
   padding: "0 3px",
   marginTop: "5px"
 };
+
 class EachSlider extends Component {
   constructor(props) {
     super(props);
@@ -160,4 +108,58 @@ class EachSlider extends Component {
   }
 }
 
+//antd 슬라이더 스타일 override위해 styled-component사용
+const S = {
+  SliderRed: styled(Slider)`
+    transition:all 0.5s;
+    .ant-slider-rail{
+        height:8px;
+        background-color:rgba(0,0,0,0,5) !important;
+    }
+    .ant-slider-track{
+        transition:width 0.3s;
+        height:8px;
+        background-color:rgb(217,83,79) !important;
+    }
+    .ant-slider-step{
+        height: 8px;
+    }
+    .ant-slider-handle{
+        border: solid 2px rgb(217,83,79) !important
+        width:16px;
+        height:16px;
+    }
+    .ant-slider-dot{
+        display:none;
+        width:0px;
+        height:0px;
+    }
+`,
+  Slider: styled(Slider)`
+    transition: all 0.5s;
+    .ant-slider-rail {
+      height: 8px;
+      background-color: rgba(0, 0, 0, 0, 5) !important;
+    }
+    .ant-slider-track {
+      transition: width 0.3s;
+      height: 8px;
+    }
+    .ant-slider-step {
+      height: 8px;
+    }
+    .ant-slider-handle {
+      width: 16px;
+      height: 16px;
+    }
+    .ant-slider-dot {
+      display: none;
+      width: 0px;
+      height: 0px;
+    }
+  `,
+  InputNumber: styled(InputNumber)`
+    font-size: 14px;
+  `
+};
 export default EachSlider;

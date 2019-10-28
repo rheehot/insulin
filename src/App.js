@@ -1,44 +1,15 @@
 import React, { Component } from "react";
 import { Navigation, Group, SliderCtrl, Script, Graph } from "./components";
 import { Row, Col } from "antd";
-import { data, graphdata, todayKr, getRandomSugar, fooddata } from "./utils";
+import { todayKr, getRandomVal } from "./utils";
+import { groupData, graphData, sample1 } from "./asset";
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-const patientsData = data.map((v, idx) => ({
+const patientsData = groupData.map((v, idx) => ({
   ...v,
   id: idx + 1,
-  room: `${getRandomInt(1, 12)}-${getRandomInt(100, 500)}`
+  room: `${getRandomVal(1, 12)}-${getRandomVal(100, 500)}`
 }));
-const sample = [
-  132,
-  317,
-  155,
-  178,
-  97,
-  182,
-  173,
-  282,
-  79,
-  180,
-  457,
-  187,
-  102,
-  321,
-  172,
-  205,
-  102,
-  165,
-  171,
-  435,
-  150,
-  200,
-  168,
-  189,
-  162,
-  189
-];
+
 class App extends Component {
   state = {
     cardtitle: {
@@ -63,7 +34,7 @@ class App extends Component {
     group: "all",
     patients: patientsData,
     rcmd: [0, 0, 0, 0],
-    graphdata: graphdata
+    graphData: graphData
   };
 
   selectPerson = async value => {
@@ -78,34 +49,37 @@ class App extends Component {
   };
 
   personChange = () => {
-    let newdata;
+    let newData;
+
+    //1번환자 샘플케이스
     if (+this.state.person === 1) {
-      newdata = this.state.graphdata.map((d, idx) => {
-        d.sugar = sample[idx];
+      newData = this.state.graphData.map((d, idx) => {
+        d.sugar = sample1[idx];
         return d;
       });
     } else {
-      newdata = this.state.graphdata.map(d => {
+      //그외 랜덤 데이터 삽입
+      newData = this.state.graphData.map(d => {
         const range = d.status === "공복" ? [50, 200] : [100, 500];
-        d.sugar = getRandomSugar(...range);
+        d.sugar = getRandomVal(...range);
         return d;
       });
     }
     this.setState({
-      graphdata: newdata
+      graphData: newData
     });
   };
 
   sliderChange = () => {
-    const newgarphdata = this.state.graphdata.map(d => {
+    const newGarphData = this.state.graphData.map(d => {
       const range = d.status === "공복" ? [50, 200] : [100, 500];
       if (d.date > +todayKr) {
-        d.sugar = getRandomSugar(...range);
+        d.sugar = getRandomVal(...range);
       }
       return d;
     });
     this.setState({
-      graphdata: newgarphdata
+      graphData: newGarphData
     });
   };
 
@@ -114,7 +88,7 @@ class App extends Component {
       cardtitle,
       rcmd,
       person,
-      graphdata,
+      graphData,
       patients,
       group,
       personData
@@ -122,13 +96,11 @@ class App extends Component {
     return (
       <>
         <Row>
-          {/* Header */}
           <Col span={24}>
             <div className="header"></div>
           </Col>
         </Row>
         <Row>
-          {/* Header */}
           <Col span={24}>
             <Navigation
               selectPerson={this.selectPerson}
@@ -140,7 +112,7 @@ class App extends Component {
         <Row gutter={20}>
           <Col span={20} offset={2}>
             <Graph
-              graphdata={graphdata}
+              graphData={graphData}
               cardtitle={cardtitle.graph}
               graphChange={this.graphChange}
               personData={personData}
