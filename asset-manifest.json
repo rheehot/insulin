@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/insulin/static/css/main.a68c398d.chunk.css",
-    "main.js": "/insulin/static/js/main.9e3bf28a.chunk.js",
-    "main.js.map": "/insulin/static/js/main.9e3bf28a.chunk.js.map",
+    "main.js": "/insulin/static/js/main.573772ef.chunk.js",
+    "main.js.map": "/insulin/static/js/main.573772ef.chunk.js.map",
     "runtime~main.js": "/insulin/static/js/runtime~main.f533eff8.js",
     "runtime~main.js.map": "/insulin/static/js/runtime~main.f533eff8.js.map",
     "static/css/2.85e81acb.chunk.css": "/insulin/static/css/2.85e81acb.chunk.css",
     "static/js/2.cb641cb4.chunk.js": "/insulin/static/js/2.cb641cb4.chunk.js",
     "static/js/2.cb641cb4.chunk.js.map": "/insulin/static/js/2.cb641cb4.chunk.js.map",
     "index.html": "/insulin/index.html",
-    "precache-manifest.af453c1bdcbd934f5c07dc0e92866229.js": "/insulin/precache-manifest.af453c1bdcbd934f5c07dc0e92866229.js",
+    "precache-manifest.320fb529fe0e013558c7263548888f78.js": "/insulin/precache-manifest.320fb529fe0e013558c7263548888f78.js",
     "service-worker.js": "/insulin/service-worker.js",
     "static/css/2.85e81acb.chunk.css.map": "/insulin/static/css/2.85e81acb.chunk.css.map",
     "static/css/main.a68c398d.chunk.css.map": "/insulin/static/css/main.a68c398d.chunk.css.map",
