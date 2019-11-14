@@ -3,7 +3,7 @@ import todayKr from "./todayKr";
 
 //과거 혈당그래프
 function processObserve(graphData, format) {
-  //현재 시간기준으로 데이터를 두그룹으로 나눔
+  //현재 시간기준으로 데이터를 두그룹으로 나눕니다.
   const group1 = graphData.filter(d => {
     return d.date <= +todayKr;
   });
@@ -12,7 +12,7 @@ function processObserve(graphData, format) {
     return d.date > +todayKr;
   });
 
-  //filteredData는 과거데이터와 현재시점 데이터를 포함한다.
+  //filteredData는 과거데이터와 현재시점 데이터를 포함합니다.
   const filteredData = [...group1, group2[0]];
 
   const res = filteredData.map(data => {

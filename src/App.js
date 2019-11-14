@@ -83,6 +83,10 @@ class App extends Component {
     });
   };
 
+  componentDidMount(){
+    this.selectPerson(1);
+  }
+
   render() {
     const {
       cardtitle,
